@@ -1,0 +1,26 @@
+{{/*  meta tags  */}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{/*  aos import & link  */}}
+{{ $aos := resources.Get "plugins/aos/aos.css" | minify }}
+{{ with  $aos }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+
+{{/*  title  */}}
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Page.Title }} - {{ site.Title }}{{ end }}</title>
+
+{{/*  favicon  */}}
+<link rel="shortcut icon" href='{{ "favicon.png" | relURL }}' type="image/x-icon">
+
+{{/*  fonts import  */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+
+{{/*  tailwind import  */}}
+{{ with (templates.Defer (dict "key" "global")) }}
+{{ partial "essentials/css.html" . }}
+{{ end }}

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+@source inline("h-20, rotate-45, -rotate-45", "top-23", "top-30", "overflow-hidden");
+
+@theme {
+  --font-primary: "JetBrains Mono", monospace;
+
+  --color-primary: var(--color-red-700);
+  --color-light: var(--color-white);
+  --color-dark: var(--color-black);
+}
+
+.header-glass {
+  @apply bg-dark/60 bg-clip-padding backdrop-filter backdrop-blur-sm;
+}
+
+.glass-responsive {
+  @apply lg:bg-transparent lg:bg-clip-border lg:backdrop-blur-none;
+}
+
+.bg-glass {
+  @apply bg-light/5 bg-clip-padding backdrop-filter backdrop-blur-sm;
+}
+
+#typewriter::after {
+  @apply whitespace-pre content-["|"] animate-[tw-cursor_1s_infinite];
+}
+
+@keyframes tw-cursor {
+  50% {
+    opacity: 0;
+  }
+}
+
+.card-spotlight {
+  @apply relative overflow-hidden before:content-[""] before:absolute before:transition-opacity before:duration-200 before:ease-[ease] before:pointer-events-none before:inset-0;
+}
+
+.card-spotlight::before {
+  background: radial-gradient(
+    350px circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 0, 0, 0.25),
+    transparent 40%
+  );
+  opacity: var(--o, 0);
+}
+
+.mask {
+  @apply after:absolute after:bg-dark after:size-full after:inset-0 after:rounded-md after:opacity-50;
+}
