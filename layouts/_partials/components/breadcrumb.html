@@ -1,0 +1,104 @@
+{{/*
+Ultra-Compatible Breadcrumb Partial for Hugo
+Fixed to show Home / About Us only for top-level pages
+Features:
+- Home → Section → Page
+- Home shows 'Home'
+- Avoids duplicate Home or section titles
+- Final crumb is current page (not linked) unless section index
+- Per-page override & hide supported
+- Configurable classes & separator
+- SEO JSON-LD output included
+*/}}
+
+{{ $site := .Site }}
+{{ $params := $site.Params.breadcrumb }}
+
+{{/* Defaults */}}
+{{ $sep := " / " }}
+{{ $wrapClass := "breadcrumb" }}
+{{ $listClass := "breadcrumb-list" }}
+{{ $itemClass := "breadcrumb-item" }}
+{{ $linkClass := "breadcrumb-link" }}
+
+{{ if $params }}
+  {{ with $params.separator }}{{ $sep = . }}{{ end }}
+  {{ with $params.wrapClass }}{{ $wrapClass = . }}{{ end }}
+  {{ with $params.listClass }}{{ $listClass = . }}{{ end }}
+  {{ with $params.itemClass }}{{ $itemClass = . }}{{ end }}
+  {{ with $params.linkClass }}{{ $linkClass = . }}{{ end }}
+{{ end }}
+
+{{ $crumbs := slice }}
+
+{{/* Home */}}
+{{ $homeTitle := "Home" }}
+{{ $homeURL := $site.BaseURL }}
+{{ $crumbs = $crumbs | append (dict "title" $homeTitle "url" $homeURL) }}
+
+{{/* Detect section index */}}
+{{ $isSectionIndex := eq .Kind "section" }}
+
+{{/* Add section ancestors, skipping root site */}}
+{{ with .CurrentSection }}
+  {{ if ne .Title $site.Title }}
+    {{ range .Ancestors.Reverse }}
+      {{ if ne .Title $site.Title }}
+        {{ $crumbs = $crumbs | append (dict "title" .Title "url" .Permalink) }}
+      {{ end }}
+    {{ end }}
+    {{ $crumbs = $crumbs | append (dict "title" .Title "url" .Permalink) }}
+  {{ end }}
+{{ end }}
+
+{{/* Final Page */}}
+{{ $finalTitle := .Title }}
+{{ $hideFinal := false }}
+
+{{ with .Params.breadcrumb }}
+  {{ with .title }}{{ $finalTitle = . }}{{ end }}
+  {{ with .hide }}{{ $hideFinal = . }}{{ end }}
+{{ end }}
+
+{{/* Skip final crumb for section index or home */}}
+{{ if and (not $hideFinal) (not $isSectionIndex) (not .IsHome) }}
+  {{ $crumbs = $crumbs | append (dict "title" $finalTitle "url" "") }}
+{{ end }}
+
+{{/* HTML Output */}}
+<nav class="{{ $wrapClass }}" aria-label="Breadcrumb">
+  <ol class="flex gap-2.5 {{ $listClass }}">
+    {{ range $i, $c := $crumbs }}
+      {{ $isLast := eq (add $i 1) (len $crumbs) }}
+      <li class="font-primary text-light {{ $itemClass }}" {{ if $isLast }}aria-current="page"{{ end }}>
+        {{ if and (not $isLast) (ne $c.url "") }}
+          <a class="hover:text-primary transition-colors underline underline-offset-4 {{ $linkClass }}" href="{{ $c.url }}">{{ $c.title }}</a>
+          <span class="breadcrumb-sep text-primary" aria-hidden="true">{{ $sep }}</span>
+        {{ else }}
+          <span class="breadcrumb-current">{{ $c.title }}</span>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ol>
+</nav>
+
+{{/* JSON-LD */}}
+{{ if ge (len $crumbs) 2 }}
+  {{ $items := slice }}
+  {{ range $i, $c := $crumbs }}
+    {{ $url := cond (ne $c.url "") $c.url $.Permalink }}
+    {{ $items = $items | append (dict
+      "@type" "ListItem"
+      "position" (add $i 1)
+      "name" $c.title
+      "item" $url
+    ) }}
+  {{ end }}
+  <script type="application/ld+json">
+  {{ dict
+    "@context" "https://schema.org"
+    "@type" "BreadcrumbList"
+    "itemListElement" $items
+  | jsonify | safeHTML }}
+  </script>
+{{ end }}

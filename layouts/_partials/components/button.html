@@ -1,27 +1,28 @@
 {{ $fullBtn := eq .size "full" }}
+{{ $light := eq .light "true" }}
 {{ if eq .link  "true" }}
 <a href="{{ .url }}"
-    class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-primary bg-dark transition duration-500 font-medium {{ if $fullBtn }}w-full{{ end }} {{ .class }}">
+    class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-primary {{ if $light }}bg-light{{ else }}bg-dark{{ end }} transition duration-500 font-medium {{ if $fullBtn }}w-full{{ end }} {{ .class }}">
     <div
         class="inline-flex h-12 translate-y-0 items-center justify-center px-6 text-primary font-primary transition duration-500 group-hover:-translate-y-[150%]">
         {{ .label }}</div>
     <div
         class="absolute inline-flex h-12 w-full translate-y-full items-center justify-center text-light transition duration-500 group-hover:translate-y-0">
         <span
-            class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 bg-primary transition duration-500 group-hover:translate-y-0 {{ if $fullBtn }}group-hover:scale-300{{ else }}group-hover:scale-160{{ end }}"></span><span
+            class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 bg-primary transition duration-500 group-hover:translate-y-0 {{ if $fullBtn }}group-hover:scale-700{{ else }}group-hover:scale-160{{ end }}"></span><span
             class="z-10 font-primary">{{ .label }}</span>
     </div>
 </a>
 {{ else }}
 <button
-    class="group cursor-pointer relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-primary bg-dark transition duration-500 font-medium {{ if $fullBtn }}w-full{{ end }} {{ .class }}">
+    class="group cursor-pointer relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-primary {{ if $light }}bg-light{{ else }}bg-dark{{ end }} transition duration-500 font-medium {{ if $fullBtn }}w-full{{ end }} {{ .class }}">
     <div
         class="inline-flex h-12 translate-y-0 items-center justify-center px-6 text-primary font-primary transition duration-500 group-hover:-translate-y-[150%]">
         {{ .label }}</div>
     <div
         class="absolute inline-flex h-12 w-full translate-y-full items-center justify-center text-light transition duration-500 group-hover:translate-y-0">
         <span
-            class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 bg-primary transition duration-500 group-hover:translate-y-0 {{ if $fullBtn }}group-hover:scale-300{{ else }}group-hover:scale-160{{ end }}"></span><span
+            class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 bg-primary transition duration-500 group-hover:translate-y-0 {{ if $fullBtn }}group-hover:scale-700{{ else }}group-hover:scale-160{{ end }}"></span><span
             class="z-10 font-primary">{{ .label }}</span>
     </div>
 </button>

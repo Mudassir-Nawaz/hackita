@@ -45,6 +45,13 @@
   opacity: var(--o, 0);
 }
 
-.mask {
-  @apply after:absolute after:bg-dark after:size-full after:inset-0 after:rounded-md after:opacity-50;
+.slide-image {
+  @apply w-full h-full;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.slide-image.hidden {
+  @apply opacity-0 pointer-events-none absolute inset-0;
+}
+.image-box.active p {
+  @apply block;
 }

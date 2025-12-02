@@ -122,17 +122,17 @@
   </div>
 </section>
 {{/* /services */}} {{/* categories */}}
-<section class="bg-linear-to-bl from-dark to-primary from-80%">
+<section class="bg-light">
   <div class="container mx-auto py-30 px-5 space-y-15">
     <div class="max-w-2xl mx-auto text-center flex flex-col gap-10">
       <h3
-        class="font-primary text-5xl text-light font-bold leading-14"
+        class="font-primary text-5xl text-dark font-bold leading-14"
         data-aos="fade-up"
       >
         Browse HackITA Categories
       </h3>
       <p
-        class="font-primary text-light text-lg"
+        class="font-primary text-dark text-lg"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -140,420 +140,315 @@
       </p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-7">
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
+    <div class="grid lg:grid-cols-3 gap-y-15 items-start">
+      <!-- IMAGE SLIDER -->
+      <div class="lg:col-span-2 relative overflow-hidden" id="imageSlider">
         <img
+          data-slide="0"
           src='{{ "images/guide-risorse.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image active"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">
-            Guides And Resources
-          </h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              5 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="1"
           src='{{ "images/cve.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">CVE</h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="2"
           src='{{ "images/linux.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">Linux</h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="3"
           src='{{ "images/networking.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">Networking</h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="4"
           src='{{ "images/tools.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">Tools</h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="5"
           src='{{ "images/walkthrough.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">
-            Walkthroughs
-          </h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="6"
           src='{{ "images/web-hacking.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
-        <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
-        >
-          <h3 class="font-primary font-bold text-3xl text-light">
-            Web Hacking
-          </h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href=""
-        class="rounded-md bg-glass p-3 h-[300px] relative group"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
         <img
+          data-slide="7"
           src='{{ "images/windoes.webp" | relURL }}'
-          alt=""
-          class="size-full object-fit rounded-md"
+          class="slide-image hidden"
         />
+      </div>
+
+      <!-- TEXT BOXES -->
+      <div class="divide-y divide-dark/20">
         <div
-          class="absolute inset-0 bg-dark/80 rounded-md flex gap-10 flex-col justify-center items-center text-center transition-opacity opacity-0 group-hover:opacity-100"
+          data-target="0"
+          class="image-box p-5 space-y-5 cursor-pointer active"
         >
-          <h3 class="font-primary font-bold text-3xl text-light">Windows</h3>
-          <div class="flex items-center">
-            <span
-              class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md"
-            >
-              1 Article
-            </span>
-          </div>
+          <h5 class="font-primary text-dark text-2xl font-semibold">
+            Guides and Resources
+          </h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
         </div>
-      </a>
+
+        <div
+          data-target="1"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">CVE</h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+
+        <div
+          data-target="2"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">Linux</h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+
+        <div
+          data-target="3"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">
+            Networking
+          </h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+
+        <div
+          data-target="4"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">Tools</h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+
+        <div
+          data-target="5"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">
+            Walkthroughs
+          </h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+
+        <div
+          data-target="6"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">
+            Web Hacking
+          </h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+
+        <div
+          data-target="7"
+          class="image-box p-5 space-y-5 cursor-pointer"
+        >
+          <h5 class="font-primary text-dark text-2xl font-semibold">Windows</h5>
+          <p class="font-primary text-dark hidden">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 {{/* /categories */}} {{/* articles */}}
-<section class="bg-linear-to-tl from-dark to-primary from-80%">
+<section class="bg-light">
   <div class="container mx-auto py-30 px-5 space-y-15">
-    <div class="flex justify-between items-center gap-5">
+    <div class="flex flex-wrap justify-between items-center gap-5">
       <h3
-        class="font-primary text-5xl text-light font-bold leading-14"
+        class="font-primary text-5xl text-dark font-bold leading-14"
         data-aos="fade-up"
+        data-aos-delay="200"
       >
         Latest Articles
       </h3>
-      <div class="flex gap-5 items-stretch">
-        <button
-          data-aos="fade-up"
-          data-aos-delay="200"
-          class="prevArticle group cursor-pointer relative inline-flex size-12 items-center justify-center overflow-hidden rounded-full border border-primary bg-dark transition duration-500 font-medium"
-        >
-          <div
-            class="inline-flex h-12 translate-y-0 items-center justify-center px-6 text-primary font-primary transition duration-500 group-hover:-translate-y-[150%]"
-          >
-            <svg
-              class="size-7 text-inherit"
-              viewBox="0 0 25 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z"
-                fill="#323544"
-              />
-            </svg>
-          </div>
-          <div
-            class="absolute inline-flex h-12 w-full translate-y-full items-center justify-center text-light transition duration-500 group-hover:translate-y-0"
-          >
-            <span
-              class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 text-inherit bg-primary transition duration-500 group-hover:translate-y-0 group-hover:scale-160"
-            ></span
-            ><span class="z-10 font-primary">
-              <svg
-                class="size-7 text-inherit"
-                viewBox="0 0 25 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="currentColor"
-                  d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z"
-                  fill="#323544"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-        <button
-          data-aos="fade-up"
-          data-aos-delay="300"
-          class="nextArticle group cursor-pointer relative inline-flex size-12 items-center justify-center overflow-hidden rounded-full border border-primary bg-dark transition duration-500 font-medium"
-        >
-          <div
-            class="inline-flex h-12 translate-y-0 items-center justify-center px-6 text-primary font-primary transition duration-500 group-hover:-translate-y-[150%]"
-          >
-            <svg
-              class="size-7 text-inherit rotate-180"
-              viewBox="0 0 25 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z"
-                fill="#323544"
-              />
-            </svg>
-          </div>
-          <div
-            class="absolute inline-flex h-12 w-full translate-y-full items-center justify-center text-light transition duration-500 group-hover:translate-y-0"
-          >
-            <span
-              class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 text-inherit bg-primary transition duration-500 group-hover:translate-y-0 group-hover:scale-160"
-            ></span
-            ><span class="z-10 font-primary">
-              <svg
-                class="size-7 text-inherit rotate-180"
-                viewBox="0 0 25 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="currentColor"
-                  d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z"
-                  fill="#323544"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
+      <div data-aos="fade-up" data-aos-delay="300">
+        {{ partial "components/button.html" (dict "link" "true" "light" "true"
+        "label" "Browse All" "url" "/blog/") }}
       </div>
     </div>
-    <div class="swiper articleSwiper" data-aos="fade-up" data-aos-delay="400">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="bg-glass rounded-md p-5 flex flex-col gap-10">
-            <img
-              src='{{ "images/linux.webp" | relURL }}'
-              alt=""
-              class="h-60 w-full rounded-md object-cover"
-            />
-            <h3 class="text-light font-primary text-2xl font-bold">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </h3>
-            <p class="text-light font-primary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-              totam. Maiores neque illo non dolorem sunt quibusdam.
-            </p>
-            <div>
-              {{ partial "components/button.html" (dict "link" "true" "label"
-              "Read More" "url" "#") }}
-            </div>
-          </div>
-        </div>
 
-        <div class="swiper-slide">
-          <div class="bg-glass rounded-md p-5 flex flex-col gap-10">
-            <img
-              src='{{ "images/linux.webp" | relURL }}'
-              alt=""
-              class="h-60 w-full rounded-md object-cover"
-            />
-            <h3 class="text-light font-primary text-2xl font-bold">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </h3>
-            <p class="text-light font-primary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-              totam. Maiores neque illo non dolorem sunt quibusdam.
-            </p>
-            <div>
-              {{ partial "components/button.html" (dict "link" "true" "label"
-              "Read More" "url" "#") }}
-            </div>
+    <div class="divide-y divide-dark/20">
+      <div
+        class="flex flex-col-reverse lg:flex-row justify-between items-stretch gap-y-15 py-15 max-w-lg mx-auto lg:max-w-max"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="flex flex-col justify-center gap-y-5 lg:w-2/3">
+          <div class="flex items-center gap-7 flex-wrap">
+            <span class="font-primary text-dark text-sm"
+              >Published Jan 24, 2025</span
+            >
+            {{ partial "components/link.html" (dict "light" "true" "label"
+            "#Networking" "url" "#" "class" " text-sm") }}
+          </div>
+          <h5
+            class="font-primary text-dark text-2xl font-semibold text-balance"
+          >
+            From Beginner to Pentester: The Essential Skills You Must Learn
+            First
+          </h5>
+          <div>
+            {{ partial "components/button.html" (dict "link" "true" "light"
+            "true" "label" "Read More" "url" "#") }}
           </div>
         </div>
+        <img
+          src='{{ "images/linux.webp" | relURL }}'
+          alt=""
+          class="lg:w-1/3 rounded-md size-full"
+        />
+      </div>
 
-        <div class="swiper-slide">
-          <div class="bg-glass rounded-md p-5 flex flex-col gap-10">
-            <img
-              src='{{ "images/linux.webp" | relURL }}'
-              alt=""
-              class="h-60 w-full rounded-md object-cover"
-            />
-            <h3 class="text-light font-primary text-2xl font-bold">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </h3>
-            <p class="text-light font-primary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-              totam. Maiores neque illo non dolorem sunt quibusdam.
-            </p>
-            <div>
-              {{ partial "components/button.html" (dict "link" "true" "label"
-              "Read More" "url" "#") }}
-            </div>
+      <div
+        class="flex flex-col-reverse lg:flex-row justify-between items-stretch gap-y-15 py-15 max-w-lg mx-auto lg:max-w-max"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="flex flex-col justify-center gap-y-5 lg:w-2/3">
+          <div class="flex items-center gap-7 flex-wrap">
+            <span class="font-primary text-dark text-sm"
+              >Published Jan 24, 2025</span
+            >
+            {{ partial "components/link.html" (dict "light" "true" "label"
+            "#Networking" "url" "#" "class" " text-sm") }}
+          </div>
+          <h5
+            class="font-primary text-dark text-2xl font-semibold text-balance"
+          >
+            From Beginner to Pentester: The Essential Skills You Must Learn
+            First
+          </h5>
+          <div>
+            {{ partial "components/button.html" (dict "link" "true" "light"
+            "true" "label" "Read More" "url" "#") }}
           </div>
         </div>
+        <img
+          src='{{ "images/linux.webp" | relURL }}'
+          alt=""
+          class="lg:w-1/3 rounded-md size-full"
+        />
+      </div>
 
-        <div class="swiper-slide">
-          <div class="bg-glass rounded-md p-5 flex flex-col gap-10">
-            <img
-              src='{{ "images/linux.webp" | relURL }}'
-              alt=""
-              class="h-60 w-full rounded-md object-cover"
-            />
-            <h3 class="text-light font-primary text-2xl font-bold">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </h3>
-            <p class="text-light font-primary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-              totam. Maiores neque illo non dolorem sunt quibusdam.
-            </p>
-            <div>
-              {{ partial "components/button.html" (dict "link" "true" "label"
-              "Read More" "url" "#") }}
-            </div>
+      <div
+        class="flex flex-col-reverse lg:flex-row justify-between items-stretch gap-y-15 py-15 max-w-lg mx-auto lg:max-w-max"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="flex flex-col justify-center gap-y-5 lg:w-2/3">
+          <div class="flex items-center gap-7 flex-wrap">
+            <span class="font-primary text-dark text-sm"
+              >Published Jan 24, 2025</span
+            >
+            {{ partial "components/link.html" (dict "light" "true" "label"
+            "#Networking" "url" "#" "class" " text-sm") }}
+          </div>
+          <h5
+            class="font-primary text-dark text-2xl font-semibold text-balance"
+          >
+            From Beginner to Pentester: The Essential Skills You Must Learn
+            First
+          </h5>
+          <div>
+            {{ partial "components/button.html" (dict "link" "true" "light"
+            "true" "label" "Read More" "url" "#") }}
           </div>
         </div>
+        <img
+          src='{{ "images/linux.webp" | relURL }}'
+          alt=""
+          class="lg:w-1/3 rounded-md size-full"
+        />
+      </div>
 
-        <div class="swiper-slide">
-          <div class="bg-glass rounded-md p-5 flex flex-col gap-10">
-            <img
-              src='{{ "images/linux.webp" | relURL }}'
-              alt=""
-              class="h-60 w-full rounded-md object-cover"
-            />
-            <h3 class="text-light font-primary text-2xl font-bold">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </h3>
-            <p class="text-light font-primary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-              totam. Maiores neque illo non dolorem sunt quibusdam.
-            </p>
-            <div>
-              {{ partial "components/button.html" (dict "link" "true" "label"
-              "Read More" "url" "#") }}
-            </div>
+      <div
+        class="flex flex-col-reverse lg:flex-row justify-between items-stretch gap-y-15 py-15 max-w-lg mx-auto lg:max-w-max"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="flex flex-col justify-center gap-y-5 lg:w-2/3">
+          <div class="flex items-center gap-7 flex-wrap">
+            <span class="font-primary text-dark text-sm"
+              >Published Jan 24, 2025</span
+            >
+            {{ partial "components/link.html" (dict "light" "true" "label"
+            "#Networking" "url" "#" "class" " text-sm") }}
+          </div>
+          <h5
+            class="font-primary text-dark text-2xl font-semibold text-balance"
+          >
+            From Beginner to Pentester: The Essential Skills You Must Learn
+            First
+          </h5>
+          <div>
+            {{ partial "components/button.html" (dict "link" "true" "light"
+            "true" "label" "Read More" "url" "#") }}
           </div>
         </div>
+        <img
+          src='{{ "images/linux.webp" | relURL }}'
+          alt=""
+          class="lg:w-1/3 rounded-md size-full"
+        />
+      </div>
+
+      <div
+        class="flex flex-col-reverse lg:flex-row justify-between items-stretch gap-y-15 py-15 pb-0 max-w-lg mx-auto lg:max-w-max"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="flex flex-col justify-center gap-y-5 lg:w-2/3">
+          <div class="flex items-center gap-7 flex-wrap">
+            <span class="font-primary text-dark text-sm"
+              >Published Jan 24, 2025</span
+            >
+            {{ partial "components/link.html" (dict "light" "true" "label"
+            "#Networking" "url" "#" "class" " text-sm") }}
+          </div>
+          <h5
+            class="font-primary text-dark text-2xl font-semibold text-balance"
+          >
+            From Beginner to Pentester: The Essential Skills You Must Learn
+            First
+          </h5>
+          <div>
+            {{ partial "components/button.html" (dict "link" "true" "light"
+            "true" "label" "Read More" "url" "#") }}
+          </div>
+        </div>
+        <img
+          src='{{ "images/linux.webp" | relURL }}'
+          alt=""
+          class="lg:w-1/3 rounded-md size-full"
+        />
       </div>
     </div>
   </div>
@@ -692,40 +587,5 @@
     </div>
   </div>
 </section>
-{{/* /track */}} {{/* cta */}}
-<section class="bg-dark">
-  <div
-    class="bg-primary py-20 container shadow-xl mx-auto px-5 rounded-md grid md:grid-cols-2 gap-y-10 content-between items-center"
-  >
-    <h3
-      class="font-primary text-5xl text-light font-bold leading-14"
-      data-aos="fade-up"
-      data-aos-delay="200"
-    >
-      Become a Cyber-Security Expert
-    </h3>
-    <div class="flex md:justify-end">
-      <a
-        href="#"
-        data-aos="fade-up"
-        data-aos-delay="300"
-        class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-light bg-primary transition duration-500 font-medium"
-      >
-        <div
-          class="inline-flex h-12 translate-y-0 items-center justify-center px-6 text-light font-primary transition duration-500 group-hover:-translate-y-[150%]"
-        >
-          Get Started
-        </div>
-        <div
-          class="absolute inline-flex h-12 w-full translate-y-full items-center justify-center text-dark transition duration-500 group-hover:translate-y-0"
-        >
-          <span
-            class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 bg-light transition duration-500 group-hover:translate-y-0 group-hover:scale-160"
-          ></span
-          ><span class="z-10 font-primary">Get Started</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-{{/* /cta */}} {{ end }}
+{{/* /track */}} {{/* cta */}} {{ partial "shared/cta.html" }} {{/* /cta */}} {{
+end }}

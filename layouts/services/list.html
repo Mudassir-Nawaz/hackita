@@ -1,0 +1,161 @@
+{{ define "main" }} {{/* hero */}}
+<section class="pt-50 pb-30 px-5 bg-dark">
+  <div class="max-w-2xl mx-auto space-y-10">
+    <h1
+      class="font-primary text-light text-5xl font-bold text-center text-balance leading-14"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      {{ .Title }}
+    </h1>
+    <div
+      class="flex justify-center items-center"
+      data-aos="fade-up"
+      data-aos-delay="400"
+    >
+      {{ partial "components/breadcrumb.html" . }}
+    </div>
+  </div>
+</section>
+{{/* /hero */}}
+
+{{/* track */}}
+<section class="bg-light">
+  <div class="container mx-auto px-5 py-30 space-y-15">
+    <div class="max-w-2xl mx-auto flex flex-col gap-10 text-center">
+      <div class="flex items-center" data-aos="fade-up">
+        <span
+          class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md -skew-y-12"
+        >
+          what we offer
+        </span>
+      </div>
+      <h3
+        class="font-primary text-5xl text-dark font-bold leading-14"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        Explore Our HackITA Training Tracks
+      </h3>
+    </div>
+    <div>
+      <!-- component -->
+      <div class="container mx-auto size-full">
+        <div class="relative wrap overflow-hidden h-full">
+          <div
+            class="border-2-2 absolute border-opacity-20 h-full w-0.5 bg-linear-to-b from-transparent via-primary/80 to-transparent left-1/2"
+          ></div>
+          <!-- right timeline -->
+          <div
+            class="mb-8 flex justify-between items-center w-full right-timeline"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="order-1 w-5/12"></div>
+            <div
+              class="z-20 flex items-center order-1 bg-primary/90 shadow-xl w-8 h-8 rounded-full"
+            >
+              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
+                1
+              </h1>
+            </div>
+            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
+              <h3 class="mb-3 font-bold text-dark text-xl font-primary">
+                Hands-On Pentesting Labs
+              </h3>
+              <p class="text-sm text-dark font-primary">
+                Train with real-world vulnerable machines and step-by-step
+                exploitation challenges designed to build practical offensive
+                security skills.
+              </p>
+            </div>
+          </div>
+
+          <!-- left timeline -->
+          <div
+            class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="order-1 w-5/12"></div>
+            <div
+              class="z-20 flex items-center order-1 bg-primary/90 shadow-xl w-8 h-8 rounded-full"
+            >
+              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
+                2
+              </h1>
+            </div>
+            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
+              <h3 class="mb-3 font-bold text-dark text-xl font-primary">
+                CVE
+              </h3>
+              <p class="text-sm text-dark font-primary">
+                Master vulnerability research with deep dives into real CVEs,
+                exploit chains, patches, and how attackers weaponize weaknesses
+                in modern systems.
+              </p>
+            </div>
+          </div>
+
+          <!-- right timeline -->
+          <div
+            class="mb-8 flex justify-between items-center w-full right-timeline"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="order-1 w-5/12"></div>
+            <div
+              class="z-20 flex items-center order-1 bg-primary/90 shadow-xl w-8 h-8 rounded-full"
+            >
+              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
+                3
+              </h1>
+            </div>
+            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
+              <h3 class="mb-3 font-bold text-dark text-xl font-primary">
+                Linux & Windows Privilege Escalation
+              </h3>
+              <p class="text-sm text-dark font-primary">
+                Learn proven privesc techniques with hands-on scenarios covering
+                kernel exploits, misconfigurations, credentials, SUID/ACL abuse,
+                and AD escalation paths.
+              </p>
+            </div>
+          </div>
+
+          <!-- left timeline -->
+          <div
+            class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="order-1 w-5/12"></div>
+            <div
+              class="z-20 flex items-center order-1 bg-primary/90 shadow-xl w-8 h-8 rounded-full"
+            >
+              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
+                4
+              </h1>
+            </div>
+            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
+              <h3 class="mb-3 font-bold text-dark text-xl font-primary">
+                Web Application Hacking & Bug Bounty Skills
+              </h3>
+              <p class="text-sm text-dark font-primary">
+                Understand critical web vulnerabilities through practical
+                exercises, modern attack vectors, and structured methodology
+                used by professional pentesters.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{/* /track */}}
+
+{{/*  cta  */}}
+{{ partial "shared/cta.html" (dict "light" "true") }}
+{{/*  /cta  */}}
+{{ end }}
