@@ -3,7 +3,7 @@
 /* ===========================
   GLOBAL DEBUG & LOGGING
 =========================== */
-const DEBUG = false; // set to FALSE in production
+const DEBUG = true; // set to FALSE in production
 
 const log = (...args) => DEBUG && console.log("🟢", ...args);
 const warn = (...args) => DEBUG && console.warn("🟡", ...args);
@@ -29,9 +29,9 @@ const FEATURES = {
   typewriter: true,
   grid: true,
   counters: true,
+  slider: true,
   aos: true,
   swiper: true,
-  slider: true
 };
 
 /* ===========================
@@ -305,107 +305,136 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================
-   IMAGE HOVER + SLIDER
-  =========================== */
+    IMAGE SLIDER + HOVER-ON-SHOW (Option B)
+  ============================ */
   try {
     if (FEATURES.slider) {
+      log("Initializing image slider");
+
       const slider = safeQuery("#imageSlider");
-      const images = safeQueryAll(".slide-image");
+      const images = safeQueryAll("#imageSlider .slide-image");
       const boxes = safeQueryAll(".image-box");
 
       if (!slider || !images.length || !boxes.length) {
-        warn("Image slider skipped (missing elements)");
+        warn("Slider elements missing, skipping slider");
       } else {
-        log("Image slider initialized");
+        let currentIndex = 0;
+        const total = images.length;
+        const desktopQuery = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+        let isDesktop = desktopQuery.matches;
 
-        let activeIndex = 0;
-        let isLocked = false;
-        let scrollDelta = 0;
+        function setActive(index, {announce = true} = {}) {
+          index = ((index % total) + total) % total;
+          if (index === currentIndex) return;
 
-        function setActive(index) {
-          activeIndex = index;
-
-          images.forEach((img, i) => {
-            img.classList.toggle("hidden", i !== index);
-            img.classList.toggle("active", i === index);
+          images.forEach((img) => {
+            const s = Number(img.dataset.slide);
+            if (s === index) {
+              img.classList.add("active");
+              img.classList.remove("inactive");
+              img.setAttribute("aria-hidden", "false");
+            } else {
+              img.classList.remove("active");
+              img.classList.add("inactive");
+              img.setAttribute("aria-hidden", "true");
+            }
           });
 
-          boxes.forEach((box, i) => {
-            box.classList.toggle("active", i === index);
+          boxes.forEach((box) => {
+            const t = Number(box.dataset.target);
+            if (t === index) {
+              box.classList.add("active");
+              box.setAttribute("aria-selected", "true");
+            } else {
+              box.classList.remove("active");
+              box.setAttribute("aria-selected", "false");
+            }
+          });
+
+          currentIndex = index;
+          if (announce) log("Active index changed to", currentIndex);
+        }
+
+        (function initDefault() {
+          setActive(0);
+        })();
+
+        function enableDesktopHover() {
+          boxes.forEach((box) => {
+            box.style.touchAction = "manipulation";
+            const onEnter = () => setActive(Number(box.dataset.target));
+            box.addEventListener("mouseenter", onEnter);
+            box._hoverHandler = onEnter;
           });
         }
 
-        function nextSlide() {
-          if (isLocked) return;
-          isLocked = true;
-
-          activeIndex = (activeIndex + 1) % images.length;
-          setActive(activeIndex);
-
-          setTimeout(() => (isLocked = false), 450);
+        function disableDesktopHover() {
+          boxes.forEach((box) => {
+            if (box._hoverHandler) box.removeEventListener("mouseenter", box._hoverHandler);
+          });
         }
 
-        function prevSlide() {
-          if (isLocked) return;
-          isLocked = true;
+        let touchStartX = 0, touchStartY = 0, touchMoved = false;
+        const SWIPE_THRESHOLD = 40;
 
-          activeIndex = (activeIndex - 1 + images.length) % images.length;
-          setActive(activeIndex);
-
-          setTimeout(() => (isLocked = false), 450);
+        function onTouchStart(e) {
+          const t = e.touches ? e.touches[0] : e;
+          touchStartX = t.clientX;
+          touchStartY = t.clientY;
+          touchMoved = false;
         }
+
+        function onTouchMove(e) { touchMoved = true; }
+
+        function onTouchEnd(e) {
+          if (!touchMoved) return;
+          const t = (e.changedTouches && e.changedTouches[0]) || e;
+          const dx = t.clientX - touchStartX;
+          const dy = t.clientY - touchStartY;
+          if (Math.abs(dx) < Math.abs(dy) * 1.2) return;
+          if (dx > SWIPE_THRESHOLD) setActive(currentIndex - 1);
+          else if (dx < -SWIPE_THRESHOLD) setActive(currentIndex + 1);
+        }
+
+        slider.addEventListener("touchstart", onTouchStart, {passive: true});
+        slider.addEventListener("touchmove", onTouchMove, {passive: true});
+        slider.addEventListener("touchend", onTouchEnd);
 
         boxes.forEach((box) => {
-          const target = parseInt(box.dataset.target, 10);
-          box.addEventListener("mouseenter", () => setActive(target));
-        });
-
-        slider.addEventListener(
-          "wheel",
-          (e) => {
-            e.preventDefault();
-            scrollDelta += e.deltaY;
-
-            if (Math.abs(scrollDelta) < 40) return;
-
-            if (scrollDelta > 0) {
-              nextSlide();
-            } else {
-              prevSlide();
+          box.addEventListener("click", () => setActive(Number(box.dataset.target)));
+          box.setAttribute("tabindex", "0");
+          box.addEventListener("keydown", (ev) => {
+            if (ev.key === "Enter" || ev.key === " ") {
+              ev.preventDefault();
+              setActive(Number(box.dataset.target));
             }
-
-            scrollDelta = 0;
-          },
-          { passive: false }
-        );
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slider.addEventListener("touchstart", (e) => {
-          touchStartX = e.changedTouches[0].screenX;
+          });
         });
 
-        slider.addEventListener("touchend", (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchStartX - touchEndX;
-
-          if (Math.abs(diff) < 40) return;
-
-          if (diff > 0) {
-            nextSlide();
+        function handleMediaChange() {
+          isDesktop = desktopQuery.matches;
+          if (isDesktop) {
+            enableDesktopHover();
           } else {
-            prevSlide();
+            disableDesktopHover();
           }
-        });
+        }
+        handleMediaChange();
+        try { desktopQuery.addEventListener("change", handleMediaChange); }
+        catch { desktopQuery.addListener(handleMediaChange); }
 
-        setActive(0);
+        window._imageGrid = {
+          getCurrent: () => currentIndex,
+          setActive,
+          next: () => setActive(currentIndex + 1),
+          prev: () => setActive(currentIndex - 1),
+        };
+
+        log("Image slider initialized");
       }
-    } else {
-      warn("Image slider disabled");
     }
   } catch (e) {
-    error("Image slider crash:", e);
+    error("Slider crash:", e);
   }
 
   /* ===========================
@@ -417,6 +446,26 @@ document.addEventListener("DOMContentLoaded", () => {
       log("AOS initialized");
     } else {
       warn("AOS skipped");
+    }
+
+    if (FEATURES.swiper && typeof Swiper !== "undefined") {
+      let articleSwiper = new Swiper('.articleSwiper', {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 20,
+        navigation: {
+          prevEl: ".prev-article",
+          nextEl: ".next-article"
+        },
+        breakpoints: {
+          1024: {
+            slidesPerView: 4
+          }
+        }
+      });
+      log("Swiper initialized");
+    } else {
+      warn("Swiper skipped");
     }
   } catch (e) {
     error("Plugin crash:", e);

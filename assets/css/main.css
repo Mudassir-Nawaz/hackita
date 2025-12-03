@@ -5,9 +5,11 @@
 @theme {
   --font-primary: "JetBrains Mono", monospace;
 
-  --color-primary: var(--color-red-700);
+  --color-primary: #D90429;
   --color-light: var(--color-white);
   --color-dark: var(--color-black);
+  --color-light-bg: #EDF2F4;
+  --color-accent: #8D99AE;
 }
 
 .header-glass {
@@ -46,12 +48,44 @@
 }
 
 .slide-image {
-  @apply w-full h-full;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  @apply opacity-0 pointer-events-none absolute h-full w-auto m-auto scale-[1.02] inset-0;
+  transition: opacity 450ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    transform 450ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
-.slide-image.hidden {
-  @apply opacity-0 pointer-events-none absolute inset-0;
+.slide-image.active {
+  @apply opacity-100 pointer-events-auto relative scale-100;
 }
-.image-box.active p {
-  @apply block;
+.image-box {
+  @apply transition-all duration-320 ease-[cubic-bezier(.2,0.9,0.2,1)];
+}
+/* collapsed dets by default (only heading visible) */
+.dets {
+  @apply max-h-0 opacity-0 overflow-hidden -translate-y-1;
+  transition: opacity 320ms ease,
+    max-height 360ms cubic-bezier(0.2, 0.9, 0.2, 1), margin 320ms ease,
+    transform 320ms ease;
+}
+/* visible dets for active */
+.image-box.active .dets {
+  @apply max-h-60 opacity-100 translate-y-0;
+  /* enough for content */
+}
+
+/* make heading always visible */
+.image-box .title {
+  @apply transition-colors;
+}
+/* visual cue for active heading */
+.image-box.active .title {
+  @apply translate-x-1 text-primary;
+}
+
+/* ensure image container keeps height */
+
+
+/* pointer cursor for desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .image-box {
+    @apply cursor-pointer;
+  }
 }
