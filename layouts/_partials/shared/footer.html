@@ -1,5 +1,5 @@
-<footer class="bg-dark py-10 px-5">
-  <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-y-10">
+<footer class="max-w-7xl mx-auto py-10 px-5">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-10">
     <div class="space-y-10">
       <img src='{{ "images/logo.webp" | relURL }}' alt="" class="w-40" />
       <div class="flex flex-wrap gap-7 items-stretch">
@@ -63,7 +63,7 @@
     </div>
 
     <nav class="flex flex-col col-span-2 gap-5">
-      <strong class="font-primary text-light">Quick Links</strong>
+      <strong class="heading-sm text-light">Quick Links</strong>
       {{ range site.Menus.main }}
       <li>
         {{ partial "components/link.html" (dict "link" .URL "label" .Name) }}
@@ -72,7 +72,7 @@
     </nav>
   </div>
   <div
-    class="h-0.5 w-full bg-linear-to-r from-transparent via-primary/40 to-transparent my-10"
+    class="h-0.5 w-full bg-linear-to-r from-transparent via-light to-transparent my-10"
   ></div>
   <div class="px-5 text-light font-primary text-center">
     <span class="text-primary">Hackita</span>&copy; 2025. All rights reserved.

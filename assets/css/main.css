@@ -6,14 +6,19 @@
   --font-primary: "JetBrains Mono", monospace;
 
   --color-primary: #D90429;
+  --color-secondary: #C9A941;
   --color-light: var(--color-white);
   --color-dark: var(--color-black);
   --color-light-bg: #EDF2F4;
   --color-accent: #111111;
 }
 
-html {
-  @apply text-[87.5%]; 
+h2 {
+  @apply text-[max(40px,min(150px,10vw))] tracking-[0.25px] font-bold leading-none;
+}
+
+.heading-sm {
+  @apply font-primary text-light text-xl leading-none uppercase font-bold text-pretty;
 }
 
 .header-glass {
@@ -71,7 +76,7 @@ html {
 .card-spotlight::before {
   background: radial-gradient(
     350px circle at var(--x, 50%) var(--y, 50%),
-    rgba(255, 0, 0, 0.25),
+    rgba(201, 169, 65, 0.25),
     transparent 40%
   );
   opacity: var(--o, 0);

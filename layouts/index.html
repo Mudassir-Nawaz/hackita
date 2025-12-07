@@ -7,7 +7,7 @@
   <div
     class="w-full mx-auto pt-30 grid grid-cols-1 lg:grid-cols-7 justify-between">
     <div class="relative lg:col-span-5">
-      <div class="swiper heroImgSwiper h-100 lg:h-180">
+      <div class="swiper heroImgSwiper h-100 lg:h-160">
         <div class="swiper-wrapper">
   
           <div class="swiper-slide">
@@ -44,17 +44,17 @@
       </div>
       <div class="hero-swiper-pagination flex justify-center items-center my-10"></div>
     </div>
-    <div class="lg:h-180 lg:overflow-y-scroll 2xl:overflow-y-hidden lg:col-span-2 px-5">
+    <div class="lg:h-160 lg:overflow-y-scroll 2xl:overflow-y-hidden lg:col-span-2 px-5">
       <div class="swiper heroTextSwiper">
           <div class="swiper-wrapper lg:flex-col lg:overflow-visible lg:divide-y divide-light">
   
             <div class="swiper-slide pb-5">
               <div class="space-y-5 px-5">
-                <h5 class="font-primary text-light text-xl leading-6 font-bold transition-colors title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <h5 class="heading-sm transition-colors title">
+                  1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div class="dets space-y-5">
-                  <p class="font-primary text-light text-sm line-clamp-4">
+                  <p class="font-primary text-light line-clamp-4">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi cumque nemo, corporis eligendi quas saepe dolorum rerum excepturi non consequatur nesciunt esse tempore!
                   </p>
                   {{ partial "components/link.html" (dict "label" "Read More") }}
@@ -64,11 +64,11 @@
   
             <div class="swiper-slide py-5">
               <div class="space-y-5 px-5">
-                <h5 class="font-primary text-light text-xl leading-6 font-bold transition-colors title">
+                <h5 class="heading-sm transition-colors title">
                   2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div class="dets space-y-5">
-                  <p class="font-primary text-light text-sm line-clamp-4">
+                  <p class="font-primary text-light line-clamp-4">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi cumque nemo, corporis eligendi quas saepe dolorum rerum excepturi non consequatur nesciunt esse tempore!
                   </p>
                   {{ partial "components/link.html" (dict "label" "Read More") }}
@@ -78,11 +78,11 @@
   
             <div class="swiper-slide py-5">
               <div class="space-y-5 px-5">
-                <h5 class="font-primary text-light text-xl leading-6 font-bold transition-colors title">
+                <h5 class="heading-sm transition-colors title">
                   3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div class="dets space-y-5">
-                  <p class="font-primary text-light text-sm line-clamp-4">
+                  <p class="font-primary text-light line-clamp-4">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi cumque nemo, corporis eligendi quas saepe dolorum rerum excepturi non consequatur nesciunt esse tempore!
                   </p>
                   {{ partial "components/link.html" (dict "label" "Read More") }}
@@ -92,11 +92,11 @@
 
             <div class="swiper-slide py-5">
               <div class="space-y-5 px-5">
-                <h5 class="font-primary text-light text-xl leading-6 font-bold transition-colors title">
+                <h5 class="heading-sm transition-colors title">
                   4 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div class="dets space-y-5">
-                  <p class="font-primary text-light text-sm line-clamp-4">
+                  <p class="font-primary text-light line-clamp-4">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi cumque nemo, corporis eligendi quas saepe dolorum rerum excepturi non consequatur nesciunt esse tempore!
                   </p>
                   {{ partial "components/link.html" (dict "label" "Read More") }}
@@ -106,11 +106,11 @@
   
             <div class="swiper-slide py-5">
               <div class="space-y-5 px-5">
-                <h5 class="font-primary text-light text-xl leading-6 font-bold transition-colors title">
+                <h5 class="heading-sm transition-colors title">
                   5 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div class="dets space-y-5">
-                  <p class="font-primary text-light text-sm">
+                  <p class="font-primary text-light line-clamp-4">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi cumque nemo, corporis eligendi quas saepe dolorum rerum excepturi non consequatur nesciunt esse tempore!
                   </p>
                   {{ partial "components/link.html" (dict "label" "Read More") }}
@@ -133,156 +133,167 @@
   <div class="w-30 sm:w-60 lg:w-100 xl:size-fit absolute -bottom-6 -right-5 sm:-bottom-12 sm:-right-10 lg:-bottom-21 lg:-right-20 xl:-bottom-29 xl:-right-27">
     <img src='{{ "images/dev/quote-icon.webp" | relURL }}' class="size-full rotate-180">
   </div>
-  <div class="container mx-auto space-y-10">
+  <div class="max-w-7xl mx-auto space-y-10">
     <div class="w-fit mx-auto" 
         data-aos="fade-up">
       <div class="w-10 sm:w-20 lg:w-30 max-h-30 relative left-0 sm:-left-14 lg:-left-20 -bottom-5">
         <img src='{{ "images/dev/heading-icon.webp" | relURL }}' class="size-full">
       </div>
       <h2
-        class="font-primary text-5xl lg:text-7xl text-light font-black uppercase text-pretty tracking-tighter text-center relative"
+        class="font-primary text-light uppercase text-pretty text-center relative"
       >
-        Learn Cyber-Security
+        Categories
       </h2>
     </div>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
 
-      <div class="group shadow-xl lg:col-span-2" data-aos="fade-up">
+      <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
       <div class="group shadow-xl" data-aos="fade-up">
         <div class="overflow-hidden">
           <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
         </div>
-        <div class="flex flex-col gap-y-5 p-5 bg-glass rounded-b-md">
+        <div class="flex flex-col gap-y-5 p-5 bg-dark">
           <div class="flex flex-wrap gap-3">
-            <span class="font-primary text-primary text-xs lg:text-sm">1 Article</span>
+            <span class="font-primary text-primary uppercase">1 Article</span>
           </div>
-          <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty">
+          <h5 class="heading-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h5>
           <div>
             {{ partial "components/button.html" (dict "label" "Read More")}}
           </div>
         </div>
+        <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
       </div>
 
+    </div>
+    <div class="flex justify-center items-stretch" data-aos="fade-up">
+      {{ partial "components/button.html" (dict "label" "Know More") }}
     </div>
   </div>
 </section>
@@ -300,14 +311,14 @@
     <source src='{{ "videos/dev/articles_bg.mp4" | relURL }}' type="video/mp4" />
   </video>
   <div class="absolute inset-0 bg-black opacity-50"></div>
-  <div class="container mx-auto space-y-10 relative">
+  <div class="max-w-7xl mx-auto space-y-10 relative">
     <div class="w-fit mx-auto" 
         data-aos="fade-up">
       <div class="w-10 sm:w-20 lg:w-30 max-h-30 relative left-0 sm:-left-14 lg:-left-20 -bottom-5">
         <img src='{{ "images/dev/heading-icon.webp" | relURL }}' class="size-full">
       </div>
       <h2
-        class="font-primary text-5xl lg:text-7xl text-light font-black uppercase text-pretty tracking-tighter text-center relative"
+        class="font-primary text-light uppercase text-pretty text-center relative"
       >
         Latest Articles
       </h2>
@@ -318,10 +329,10 @@
       </div>
       <div class="flex flex-col gap-y-5">
         <div class="flex flex-wrap gap-5">
-          <span class="font-primary text-light text-xs lg:text-sm">Jan 24, 2025</span>
-          <span class="font-primary text-light text-xs lg:text-sm">2 Min Read</span>
+          <span class="font-primary text-light uppercase">Jan 24, 2025</span>
+          <span class="font-primary text-light uppercase">2 Min Read</span>
         </div>
-        <h5 class="font-primary text-light text-2xl font-bold text-pretty group-hover:text-primary transition-colors">
+        <h5 class="heading-sm group-hover:text-primary transition-colors">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </h5>
         <p class="font-primary text-light text-balance">
@@ -356,18 +367,19 @@
               <div class="overflow-hidden">
                 <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
               </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 rounded-b-md bg-glass p-3 lg:p-5">
+              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
                 <div class="flex flex-wrap gap-3">
-                  <span class="font-primary text-light text-xs lg:text-sm">Jan 24, 2025</span>
-                  <span class="font-primary text-light text-xs lg:text-sm">2 Min Read</span>
+                  <span class="font-primary text-light uppercase">Jan 24, 2025</span>
+                  <span class="font-primary text-light uppercase">2 Min Read</span>
                 </div>
-                <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty group-hover:text-primary transition-colors">
+                <h5 class="heading-sm group-hover:text-primary transition-colors">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div>
                   {{ partial "components/button.html" (dict "label" "Read More")}}
                 </div>
               </div>
+              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
             </a>
           </div>
   
@@ -376,18 +388,19 @@
               <div class="overflow-hidden">
                 <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
               </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 rounded-b-md bg-glass p-3 lg:p-5">
+              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
                 <div class="flex flex-wrap gap-3">
-                  <span class="font-primary text-light text-xs lg:text-sm">Jan 24, 2025</span>
-                  <span class="font-primary text-light text-xs lg:text-sm">2 Min Read</span>
+                  <span class="font-primary text-light uppercase">Jan 24, 2025</span>
+                  <span class="font-primary text-light uppercase">2 Min Read</span>
                 </div>
-                <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty group-hover:text-primary transition-colors">
+                <h5 class="heading-sm group-hover:text-primary transition-colors">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div>
                   {{ partial "components/button.html" (dict "label" "Read More")}}
                 </div>
               </div>
+              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
             </a>
           </div>
   
@@ -396,18 +409,19 @@
               <div class="overflow-hidden">
                 <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
               </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 rounded-b-md bg-glass p-3 lg:p-5">
+              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
                 <div class="flex flex-wrap gap-3">
-                  <span class="font-primary text-light text-xs lg:text-sm">Jan 24, 2025</span>
-                  <span class="font-primary text-light text-xs lg:text-sm">2 Min Read</span>
+                  <span class="font-primary text-light">Jan 24, 2025</span>
+                  <span class="font-primary text-light">2 Min Read</span>
                 </div>
-                <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty group-hover:text-primary transition-colors">
+                <h5 class="heading-sm group-hover:text-primary transition-colors">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div>
                   {{ partial "components/button.html" (dict "label" "Read More")}}
                 </div>
               </div>
+              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
             </a>
           </div>
   
@@ -416,18 +430,19 @@
               <div class="overflow-hidden">
                 <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
               </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 rounded-b-md bg-glass p-3 lg:p-5">
+              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
                 <div class="flex flex-wrap gap-3">
-                  <span class="font-primary text-light text-xs lg:text-sm">Jan 24, 2025</span>
-                  <span class="font-primary text-light text-xs lg:text-sm">2 Min Read</span>
+                  <span class="font-primary text-light uppercase">Jan 24, 2025</span>
+                  <span class="font-primary text-light uppercase">2 Min Read</span>
                 </div>
-                <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty group-hover:text-primary transition-colors">
+                <h5 class="heading-sm group-hover:text-primary transition-colors">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div>
                   {{ partial "components/button.html" (dict "label" "Read More")}}
                 </div>
               </div>
+              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
             </a>
           </div>
   
@@ -436,18 +451,19 @@
               <div class="overflow-hidden">
                 <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
               </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 rounded-b-md bg-glass p-3 lg:p-5">
+              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
                 <div class="flex flex-wrap gap-3">
-                  <span class="font-primary text-light text-xs lg:text-sm">Jan 24, 2025</span>
-                  <span class="font-primary text-light text-xs lg:text-sm">2 Min Read</span>
+                  <span class="font-primary text-light uppercase">Jan 24, 2025</span>
+                  <span class="font-primary text-light uppercase">2 Min Read</span>
                 </div>
-                <h5 class="font-primary text-light lg:text-xl lg:leading-6 font-semibold lg:font-bold text-pretty group-hover:text-primary transition-colors">
+                <h5 class="heading-sm group-hover:text-primary transition-colors">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </h5>
                 <div>
                   {{ partial "components/button.html" (dict "label" "Read More")}}
                 </div>
               </div>
+              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-secondary after:-translate-x-full group-hover:after:translate-x-0"></div>
             </a>
           </div>
            
@@ -463,14 +479,14 @@
 
 {{/* about */}}
 <section class="bg-mask pt-3 pb-10 px-5">
-  <div class="container mx-auto space-y-10">
+  <div class="max-w-7xl mx-auto space-y-10">
     <div class="w-fit mx-auto" 
         data-aos="fade-up">
       <div class="w-10 sm:w-20 lg:w-30 max-h-30 relative left-0 sm:-left-14 lg:-left-20 -bottom-5">
         <img src='{{ "images/dev/heading-icon.webp" | relURL }}' class="size-full">
       </div>
       <h2
-        class="font-primary text-5xl lg:text-7xl text-light font-black uppercase text-pretty tracking-tighter text-center relative"
+        class="font-primary text-light uppercase text-pretty text-center relative"
       >
         About Us
       </h2>
@@ -478,14 +494,14 @@
     <div class="flex flex-col-reverse lg:flex-row gap-10 content-between" data-aos="fade-up">
       <div class="space-y-10 lg:w-1/2">
         <p
-          class="font-primary text-light text-lg text-balance"
+          class="font-primary text-light text-balance"
         >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis rerum officiis dolores cupiditate perferendis optio. Itaque ipsum nobis dignissimos, distinctio vitae officiis voluptate mollitia ut sint nostrum harum reprehenderit blanditiis odio quos, cum, exercitationem non nisi totam accusantium quia pariatur. Harum blanditiis nulla consequuntur distinctio accusamus voluptatibus, nostrum, incidunt, sequi ducimus ab fugit. Impedit tempora esse quibusdam aut laborum vel blanditiis a minima distinctio, non tenetur numquam accusamus adipisci, aperiam perspiciatis ad rerum molestiae repellendus ducimus quo laudantium corrupti modi maiores sunt! Libero nobis cupiditate unde sunt aut culpa placeat vitae illum accusamus, incidunt adipisci a repellendus aspernatur ipsum natus? Est fugit expedita unde officia quisquam at? Animi alias maiores commodi itaque, quam ducimus laborum blanditiis voluptatum molestias velit sed officia temporibus dolorem?
         </p>
         {{ partial "components/button.html" (dict "link" "true" "label" "Read More") }}
       </div>
       <div class="lg:w-1/2" data-aos="fade-up">
-        <img src='{{ "images/hackita-hero.webp" | relURL }}' alt="" class="w-150 ml-auto">
+        <img src='{{ "images/hackita-hero.webp" | relURL }}' alt="" class="lg:w-150 lg:ml-auto">
       </div>
     </div>
   </div>
@@ -493,21 +509,29 @@
 {{/* /about */}}
 
 {{/* services */}}
-<section class="bg-mask">
-  <div class="container py-10 px-5 mx-auto grid lg:grid-cols-2 gap-y-10">
+{{ $CounterBg := "images/dev/gold-bg.webp" | relURL }}
+<section style="background: url('{{ $CounterBg }}') no-repeat center; background-size: cover;" class="relative">
+  <div class="absolute inset-0 bg-dark/40"></div>
+  <!-- <div class="w-30 sm:w-60 lg:w-80 xl:size-100 absolute -top-7 -left-5 sm:-top-14 sm:-left-10 lg:-top-18 lg:-left-10 xl:-top-23 xl:-left-12">
+    <img src='{{ "images/dev/quote-icon-second.webp" | relURL }}' class="size-full">
+  </div>
+  <div class="w-30 sm:w-60 lg:w-80 xl:size-100 absolute -bottom-7 -right-5 sm:-bottom-13  sm:-right-10 lg:-bottom-18 lg:-right-10 xl:-bottom-23 xl:-right-11">
+    <img src='{{ "images/dev/quote-icon-second.webp" | relURL }}' class="size-full rotate-180">
+  </div> -->
+  <div class="max-w-7xl py-10 px-5 mx-auto grid lg:grid-cols-2 gap-y-10 relative">
     <div class="flex flex-col gap-10" data-aos="fade-up">
       <div>
         <span
-          class="font-primary text-light font-semibold uppercase p-3 text-sm rounded-md bg-primary"
+          class="font-primary text-light font-semibold uppercase p-3 text-sm rounded-md bg-secondary"
         >
           hackita academy
         </span>
       </div>
-      <h1
+      <h3
         class="font-primary text-5xl lg:text-7xl text-light font-black uppercase text-pretty tracking-tighter"
       >
         Learn Cyber-Security
-      </h1>
+      </h3>
       <!-- <div
         class="flex items-center"
         data-aos="fade-up"
@@ -519,10 +543,10 @@
         </span>
       </div> -->
       <p
-        class="font-primary text-light text-lg text-balance"
+        class="font-primary text-light text-balance"
       >
         From the basics to the OSCP level: <br />
-        <span id="typewriter" class="text-primary font-semibold"></span>
+        <span id="typewriter" class="text-secondary font-semibold"></span>
         to become a true pentester.
       </p>
 
@@ -534,40 +558,40 @@
         <span>real lab notes</span>
       </div>
     </div>
-    <div id="stats-grid" class="relative md:columns-2 gap-5 space-y-5" data-aos="fade-up">
+    <div id="stats-grid" class="relative grid lg:grid-cols-2 gap-5" data-aos="fade-up">
       <div
-        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-light/20 border p-5"
+        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-secondary border p-5"
       >
-        <span class="font-primary text-primary text-3xl font-black">12+</span>
-        <h5 class="font-primary text-light text-2xl font-semibold">
+        <span class="font-primary text-secondary text-3xl font-black">12+</span>
+        <h5 class="heading-sm">
           Technical Articles
         </h5>
         <p class="font-primary text-light">Walkthroughs, tips and labs.</p>
       </div>
 
       <div
-        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-light/20 border p-5"
+        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-secondary border p-5"
       >
-        <span class="font-primary text-primary text-3xl font-black">12+</span>
-        <h5 class="font-primary text-light text-2xl font-semibold">
+        <span class="font-primary text-secondary text-3xl font-black">8+</span>
+        <h5 class="heading-sm">
           Main Categories
         </h5>
         <p class="font-primary text-light">Linux, Windows, Web…</p>
       </div>
 
       <div
-        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-light/20 border p-5"
+        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-secondary border p-5"
       >
-        <span class="font-primary text-primary text-3xl font-black">OSCP</span>
-        <h5 class="font-primary text-light text-2xl font-semibold">Focused</h5>
+        <span class="font-primary text-secondary text-3xl font-black">OSCP</span>
+        <h5 class="heading-sm">Focused</h5>
         <p class="font-primary text-light">Structure designed for OSCP/OSWE.</p>
       </div>
 
       <div
-        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-light/20 border p-5"
+        class="card-spotlight flex flex-col gap-y-5 text-center rounded-md bg-glass border-secondary border p-5"
       >
-        <span class="font-primary text-primary text-3xl font-black">100%</span>
-        <h5 class="font-primary text-light text-2xl font-semibold">
+        <span class="font-primary text-secondary text-3xl font-black">100%</span>
+        <h5 class="heading-sm">
           Red Team Vibes
         </h5>
         <p class="font-primary text-light">Zero fluff — only real content.</p>
@@ -577,133 +601,87 @@
 </section>
 {{/* /services */}}
 {{/* track */}}
-<section>
-  <div class="container mx-auto px-5 py-30 space-y-15">
-    <div class="max-w-2xl mx-auto flex flex-col gap-10 text-center">
-      <div class="flex items-center" data-aos="fade-up">
-        <span
-          class="font-primary text-light text-sm font-semibold uppercase bg-primary p-3 rounded-md -skew-y-12"
-        >
-          what we offer
-        </span>
+<section class="bg-mask">
+  <div class="max-w-7xl mx-auto px-5 py-10 space-y-10">
+    <div class="w-fit mx-auto" 
+        data-aos="fade-up">
+      <div class="w-10 sm:w-20 lg:w-30 max-h-30 relative left-0 sm:-left-14 lg:-left-20 -bottom-5">
+        <img src='{{ "images/dev/heading-icon.webp" | relURL }}' class="size-full">
       </div>
-      <h3
-        class="font-primary text-5xl text-light font-bold leading-14"
-        data-aos="fade-up"
+      <h2
+        class="font-primary text-light uppercase text-pretty text-center relative"
       >
-        Explore Our HackITA Training Tracks
-      </h3>
+        HackITA Training Tracks
+      </h2>
     </div>
-    <div>
-      <!-- component -->
-      <div class="container mx-auto size-full">
-        <div class="relative wrap overflow-hidden h-full">
-          <div
-            class="border-2-2 absolute border-opacity-20 h-full w-0.5 bg-linear-to-b from-transparent via-primary/40 to-transparent left-1/2"
-          ></div>
-          <!-- right timeline -->
-          <div
-            class="mb-8 flex justify-between items-center w-full right-timeline"
-            data-aos="zoom-in"
-          >
-            <div class="order-1 w-5/12"></div>
-            <div
-              class="z-20 flex items-center order-1 bg-primary/50 shadow-xl w-8 h-8 rounded-full"
-            >
-              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
-                1
-              </h1>
-            </div>
-            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
-              <h3 class="mb-3 font-bold text-light text-xl font-primary">
-                Hands-On Pentesting Labs
-              </h3>
-              <p class="text-sm text-light font-primary">
-                Train with real-world vulnerable machines and step-by-step
-                exploitation challenges designed to build practical offensive
-                security skills.
-              </p>
-            </div>
-          </div>
 
-          <!-- left timeline -->
-          <div
-            class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
-            data-aos="zoom-in"
-          >
-            <div class="order-1 w-5/12"></div>
-            <div
-              class="z-20 flex items-center order-1 bg-primary/50 shadow-xl w-8 h-8 rounded-full"
-            >
-              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
-                2
-              </h1>
+    <div class="grid lg:grid-cols-2 gap-10" data-aos="fade-up">
+      <div class="flex flex-col-reverse lg:flex-row gap-5 items-center justify-between p-7 bg-glass rounded-md border border-transparent hover:border-primary transition-all group hover:scale-105">
+        <div class="space-y-5 w-2/3">
+           <h5 class="heading-sm group-hover:text-primary transition-colors">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h5>
+            <p class="font-primary text-light text-balance">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus natus, sit aut mollitia commodi vitae officiis. Sapiente dolor quas iusto at magni consequatur.
+            </p>
+            <div>
+              {{ partial "components/button.html" (dict "label" "Read More") }}
             </div>
-            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
-              <h3 class="mb-3 font-bold text-light text-xl font-primary">
-                CVE
-              </h3>
-              <p class="text-sm text-light font-primary">
-                Master vulnerability research with deep dives into real CVEs,
-                exploit chains, patches, and how attackers weaponize weaknesses
-                in modern systems.
-              </p>
-            </div>
-          </div>
-
-          <!-- right timeline -->
-          <div
-            class="mb-8 flex justify-between items-center w-full right-timeline"
-            data-aos="zoom-in"
-          >
-            <div class="order-1 w-5/12"></div>
-            <div
-              class="z-20 flex items-center order-1 bg-primary/50 shadow-xl w-8 h-8 rounded-full"
-            >
-              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
-                3
-              </h1>
-            </div>
-            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
-              <h3 class="mb-3 font-bold text-light text-xl font-primary">
-                Linux & Windows Privilege Escalation
-              </h3>
-              <p class="text-sm text-light font-primary">
-                Learn proven privesc techniques with hands-on scenarios covering
-                kernel exploits, misconfigurations, credentials, SUID/ACL abuse,
-                and AD escalation paths.
-              </p>
-            </div>
-          </div>
-
-          <!-- left timeline -->
-          <div
-            class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
-            data-aos="zoom-in"
-          >
-            <div class="order-1 w-5/12"></div>
-            <div
-              class="z-20 flex items-center order-1 bg-primary/50 shadow-xl w-8 h-8 rounded-full"
-            >
-              <h1 class="mx-auto font-semibold text-lg text-light font-primary">
-                4
-              </h1>
-            </div>
-            <div class="order-1 bg-glass rounded-md shadow-xl w-5/12 p-5">
-              <h3 class="mb-3 font-bold text-light text-xl font-primary">
-                Web Application Hacking & Bug Bounty Skills
-              </h3>
-              <p class="text-sm text-light font-primary">
-                Understand critical web vulnerabilities through practical
-                exercises, modern attack vectors, and structured methodology
-                used by professional pentesters.
-              </p>
-            </div>
-          </div>
         </div>
+        <h3 class="font-primary text-primary text-center text-[170px] font-bold w-1/3">1</h3>
+      </div>
+
+      <div class="flex flex-col-reverse lg:flex-row-reverse gap-5 items-center justify-between p-7 bg-glass rounded-md border border-transparent hover:border-primary transition-all group hover:scale-105">
+        <div class="space-y-5 w-2/3">
+           <h5 class="heading-sm group-hover:text-primary transition-colors">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h5>
+            <p class="font-primary text-light text-balance">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus natus, sit aut mollitia commodi vitae officiis. Sapiente dolor quas iusto at magni consequatur.
+            </p>
+            <div>
+              {{ partial "components/button.html" (dict "label" "Read More") }}
+            </div>
+        </div>
+        <h3 class="font-primary text-primary text-center text-[170px] font-bold w-1/3">2</h3>
+      </div>
+
+      <div class="flex flex-col-reverse lg:flex-row gap-5 items-center justify-between p-7 bg-glass rounded-md border border-transparent hover:border-primary transition-all group hover:scale-105">
+        <div class="space-y-5 w-2/3">
+           <h5 class="heading-sm group-hover:text-primary transition-colors">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h5>
+            <p class="font-primary text-light text-balance">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus natus, sit aut mollitia commodi vitae officiis. Sapiente dolor quas iusto at magni consequatur.
+            </p>
+            <div>
+              {{ partial "components/button.html" (dict "label" "Read More") }}
+            </div>
+        </div>
+        <h3 class="font-primary text-primary text-center text-[170px] font-bold w-1/3">3</h3>
+      </div>
+
+      <div class="flex flex-col-reverse lg:flex-row-reverse gap-5 items-center justify-between p-7 bg-glass rounded-md border border-transparent hover:border-primary transition-all group hover:scale-105">
+        <div class="space-y-5 w-2/3">
+           <h5 class="heading-sm group-hover:text-primary transition-colors">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h5>
+            <p class="font-primary text-light text-balance">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus natus, sit aut mollitia commodi vitae officiis. Sapiente dolor quas iusto at magni consequatur.
+            </p>
+            <div>
+              {{ partial "components/button.html" (dict "label" "Read More") }}
+            </div>
+        </div>
+        <h3 class="font-primary text-primary text-center text-[170px] font-bold w-1/3">4</h3>
       </div>
     </div>
   </div>
 </section>
-{{/* /track */}} {{/* cta */}} {{ partial "shared/cta.html" }} {{/* /cta */}} {{
+{{/* /track */}} 
+{{/* cta */}}
+<section class="bg-mask pb-10">
+  {{ partial "shared/cta.html" }}
+</section>
+{{/* /cta */}} {{
 end }}
