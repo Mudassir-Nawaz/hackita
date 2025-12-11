@@ -16,7 +16,7 @@
   --breakpoint-max: 118.75rem;
 }
 
-h1, h2, h3, h4, h5, h6, .heading {
+h1, h2, h3, h4, h5, h6, .heading, .heading-sm, .hero-heading {
   @apply font-heading;
 }
 
@@ -25,7 +25,11 @@ h1, h2, h3, h4, h5, h6, .heading {
 }
 
 h1, h2 {
-  @apply text-[max(50px,min(80px,5vw))] tracking-[0.25px] font-bold leading-none;
+  @apply text-[max(50px,min(80px,5vw))] tracking-[0.25px] font-bold leading-none text-pretty;
+}
+
+.hero-heading {
+  @apply text-[max(30px,min(30px,5vw))] tracking-[0.25px] font-bold leading-none text-pretty;
 }
 
 .heading-sm {

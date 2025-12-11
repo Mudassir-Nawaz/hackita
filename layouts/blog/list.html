@@ -1,1703 +1,288 @@
 {{ define "main" }}
 
 {{/* hero */}}
-{{ partial "shared/hero.html" (dict "title" .Title "page" .) }}
+<section class="pt-30 pb-10 px-5">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-10">
+
+    <div class="rounded-md col-span-3 py-20 px-5 bg-cover bg-no-repeat bg-center relative bg-[url('{{ .Params.image | relURL }}')]">
+      <div class="absolute inset-0 bg-primary opacity-10 rounded-md"></div>
+      <div class="relative flex flex-col justify-center items-start gap-10">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-light uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          <span class="text-secondary">Live</span> 
+          Web Hacking
+        </span>
+        <h3 class="text-light hero-heading">Breaking a real LFI into full remote code execution</h3>
+        <div class="flex flex-wrap gap-5 items-center uppercase">
+          <span class="text-light">HackITA TV</span>
+          <span class="text-light/80">OSCP / Web Hacking</span>
+          <span class="text-light/80">24 min watch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-5 justify-between items-start col-span-2">
+      <span class="text-primary"># Featured session</span>
+      <h3 class="text-light hero-heading">From basic bug to full compromise: real-world exploitation path.</h3>
+      <p class="text-light">Watch a full breakdown of a vulnerable web application, from discovery of a simple Local File Inclusion bug to log poisoning and remote code execution. Ideal to train your OSCP mindset with a realistic target.</p>
+      <div class="flex items-stretch gap-5">
+        {{ partial "components/button.html" (dict "secondary" "true" "label" "Watch Now") }}
+        {{ partial "components/button.html" (dict "secondary" "true" "label" "Articles") }}
+      </div>
+    </div>
+  </div>
+</section>
 {{/* /hero */}}
 
-<section class="bg-mask py-10 px-5 lg:px-0">
+{{/* cards */}}
+<section class="max-w-7xl mx-auto py-10 px-5">
 
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Guides And Resources
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="guidesPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="guidesNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          Web Hacking
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Latest</span> Exploits</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper guideSwiper">
-        <div class="swiper-wrapper" id="guidesWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/guide-risorse.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
+          </div>
+        </div>
+
       </div>
-
-      <script>
-        const wrapper = document.getElementById("guidesWrapper");
-
-        if (window.innerWidth >= 1024) {
-            wrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + wrapper.innerHTML;
-        }
-
-        let guidesSwiper = new Swiper('.guideSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".guidesPrev",
-                nextEl: ".guidesNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        CVE
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="cvePrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="cveNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          LINUXPRIVESC
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Privilege</span> Escalation</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper cveSwiper">
-        <div class="swiper-wrapper" id="cveWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/cve.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const cveWrapper = document.getElementById("cveWrapper");
-
-        if (window.innerWidth >= 1024) {
-            cveWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + cveWrapper.innerHTML;
-        }
-
-        let cveSwiper = new Swiper('.cveSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".cvePrev",
-                nextEl: ".cveNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Linux
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="linuxPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="linuxNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          WINDOWSATTACKS
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Host</span> Attacks</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper linuxSwiper">
-        <div class="swiper-wrapper" id="linuxWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/linux.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const linuxWrapper = document.getElementById("linuxWrapper");
-
-        if (window.innerWidth >= 1024) {
-            linuxWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + linuxWrapper.innerHTML;
-        }
-
-        let linuxSwiper = new Swiper('.linuxSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".linuxPrev",
-                nextEl: ".linuxNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Networking
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="networkingPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="networkingNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          TOOLS & AUTOMATION
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Automation</span> & Scripts</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper networkingSwiper">
-        <div class="swiper-wrapper" id="networkingWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/networking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const networkingWrapper = document.getElementById("networkingWrapper");
-
-        if (window.innerWidth >= 1024) {
-            networkingWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + networkingWrapper.innerHTML;
-        }
-
-        let networkingSwiper = new Swiper('.networkingSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".networkingPrev",
-                nextEl: ".networkingNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Web Hacking
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="webHackingPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="webHackingNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          NETWORKING & PORTS
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Ports</span> & Services</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper webHackingSwiper">
-        <div class="swiper-wrapper" id="webHackingWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const webHackingWrapper = document.getElementById("webHackingWrapper");
-
-        if (window.innerWidth >= 1024) {
-            webHackingWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + webHackingWrapper.innerHTML;
-        }
-
-        let webHackingSwiper = new Swiper('.webHackingSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".webHackingPrev",
-                nextEl: ".webHackingNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Walk Throughs
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="walkthroughPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="walkthroughNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          CVEDEEP DIVES
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Vuln</span> Research</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper walkthroughSwiper">
-        <div class="swiper-wrapper" id="walkthroughWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const walkthroughWrapper = document.getElementById("walkthroughWrapper");
-
-        if (window.innerWidth >= 1024) {
-            walkthroughWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + walkthroughWrapper.innerHTML;
-        }
-
-        let walkthroughSwiper = new Swiper('.walkthroughSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".walkthroughPrev",
-                nextEl: ".walkthroughNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Tools
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="toolPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="toolNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          WALKTHROUGHS & LABS
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Lab</span> Sessions</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper toolSwiper">
-        <div class="swiper-wrapper" id="toolWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/tools.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const toolWrapper = document.getElementById("toolWrapper");
-
-        if (window.innerWidth >= 1024) {
-            toolWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + toolWrapper.innerHTML;
-        }
-
-        let toolSwiper = new Swiper('.toolSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".toolPrev",
-                nextEl: ".toolNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
-</section>
 
-<section class="bg-mask py-10 px-5 lg:px-0">
-
-  <div class="space-y-10">
-    <div class="lg:max-w-[65vw] 2xl:max-w-[70vw] max:w-[1300px] mx-auto lg:px-5 flex flex-wrap gap-y-10 justify-between items-stretch" 
-        data-aos="fade-up">
-      <h2
-        class=" text-light uppercase text-pretty relative"
-      >
-        Windows
-      </h2>
-      <div class="flex items-stretch justify-between w-full md:w-fit lg:justify-end">
-        <!-- prev -->
-        <button aria-label="prev slide" class="windowsPrev cursor-pointer">
-            <svg class="size-10 text-primary" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /prev -->
-
-        <!-- next -->
-        <button aria-label="next slide"  class="windowsNext cursor-pointer">
-            <svg class="size-10 text-primary rotate-180" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
-            </svg>
-        </button>
-        <!-- /next -->
+  <div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="py-10">
+      <div class="mb-5 flex gap-5 items-center justify-start">
+        <span 
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
+          GUIDES & RESOURCES
+        </span>
+        <p class="heading-sm text-light"><span class="text-secondary">Study</span> & Resources</p>
       </div>
-    </div>
-    <div class="relative" data-aos="fade-up">
-      <div class="swiper windowsSwiper">
-        <div class="swiper-wrapper" id="windowsWrapper">
-  
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
 
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
+        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+            <div class="w-full flex justify-between items-center uppercase">
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
+              <span class="text-light text-sm">10 min read</span>
+            </div>
+            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
+            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
           </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a href="" class="inline-flex flex-col items-stretch group shadow-xl">
-              <div class="overflow-hidden">
-                <img src='{{ "images/windows.webp" | relURL }}' alt="" class="size-full object-cover group-hover:scale-115 transition-transform duration-500">
-              </div>
-              <div class="row-span-2 flex flex-col gap-y-3 lg:gap-y-5 bg-glass p-3 lg:p-5">
-                <div class="flex flex-wrap gap-3">
-                  <span class=" text-light uppercase">Jan 24, 2025</span>
-                  <span class=" text-primary uppercase">2 Min Read</span>
-                </div>
-                <h5 class="heading-sm text-light group-hover:text-primary transition-colors">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h5>
-                <div>
-                  {{ partial "components/button.html" (dict "label" "Read More")}}
-                </div>
-              </div>
-              <div class="h-1 w-full bg-light/20 relative overflow-hidden after:transition-transform after:duration-300 after:absolute after:inset-0 after:bg-primary after:-translate-x-full group-hover:after:translate-x-0"></div>
-            </a>
-          </div>
-           
         </div>
+
       </div>
-
-      <script>
-        const windowsWrapper = document.getElementById("windowsWrapper");
-
-        if (window.innerWidth >= 1024) {
-            windowsWrapper.innerHTML = `
-                <div class="swiper-slide"></div>
-            ` + windowsWrapper.innerHTML;
-        }
-
-        let windowsSwiper = new Swiper('.windowsSwiper', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".windowsPrev",
-                nextEl: ".windowsNext"
-            },
-            breakpoints: {
-                1024: {
-                    slidesPerView: 5
-                },
-                1536: {
-                    slidesPerView: 6
-                }
-            }
-        });
-      </script>
     </div>
   </div>
+
 </section>
+{{/* /cards */}}
 
 {{ end }}
