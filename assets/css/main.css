@@ -109,7 +109,18 @@ h1, h2 {
 }
 
 .red-mask {
-  --dot-color: color-mix(in oklab, var(--color-dark) /* var(--color-white) */ 50%, transparent);
+  --dot-color: color-mix(in oklab, var(--color-dark) /* var(--color-white) */ 30%, transparent);
+  background-image:
+    radial-gradient(circle at 8px 8px, var(--dot-color) 0, var(--dot-color) 0.5px, transparent 1px),
+    radial-gradient(circle at 24px 8px, var(--dot-color) 0, var(--dot-color) 0.5px, transparent 1px),
+    radial-gradient(circle at 8px 24px, var(--dot-color) 0, var(--dot-color) 0.5px, transparent 1px),
+    radial-gradient(circle at 24px 24px, var(--dot-color) 0, var(--dot-color) 0.5px, transparent 1px);
+  background-size: 32px 32px;
+  background-repeat: repeat;
+}
+
+.light-mask {
+  --dot-color: color-mix(in oklab, var(--color-dark) /* var(--color-white) */ 30%, transparent);
   background-image:
     radial-gradient(circle at 8px 8px, var(--dot-color) 0, var(--dot-color) 0.5px, transparent 1px),
     radial-gradient(circle at 24px 8px, var(--dot-color) 0, var(--dot-color) 0.5px, transparent 1px),
@@ -185,23 +196,33 @@ h1, h2 {
   }
 }
 
-.custom-input {
-  @apply relative overflow-hidden rounded-md before:absolute before:animate-[hn-orbit-spin_9s_linear_infinite] before:opacity-90 before:-inset-1/4 focus-within:shadow-[var(--color-accent),var(--color-dark)] focus-within:before:animate-[hn-orbit-spin-fast_4s_linear_infinite] bg-light;
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.2); }
 }
 
-.custom-input::before {
-  background: conic-gradient(from 0deg, var(--color-accent), var(--color-dark));
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
-.custom-input-wrapper {
-  @apply relative z-1 -m-0.5 rounded-md;
-  background: radial-gradient(circle at top left, var(--color-light) 0, var(--color-light) 65%);
+.input-field {
+  @apply transition-all duration-300 ease-[ease] border-2 border-solid border-light/50 focus:animate-[pulse-glow_2s_infinite] focus:border-light;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
 }
-
-.custom-input {
-  @apply w-full text-dark relative z-2 p-2 rounded-md border-none;
+.input-field:focus {
   outline: none;
 }
-.custom-input::placeholder {
-  @apply text-dark/30;
+.input-field:focus + .label {
+  @apply text-light -translate-y-6 animate-[flicker_3s_infinite] scale-[0.85];
+}
+.input-field:not(:placeholder-shown) + .label {
+  @apply -translate-y-6 text-light scale-[0.85];
+}
+.label {
+  @apply absolute -translate-y-2/4 transition-all duration-300 ease-[ease] pointer-events-none tracking-[2px] left-4 top-2/4;
 }

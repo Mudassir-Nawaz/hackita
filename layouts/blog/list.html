@@ -2,286 +2,77 @@
 
 {{/* hero */}}
 <section class="pt-30 pb-10 px-5">
+  {{ range first 1 (where .RegularPages "Params.featured" "eq" true) }}
   <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-10">
-
+    {{ $readingTime := div (float .WordCount) 170 }}
+    {{ $readingTime = math.Ceil $readingTime }}
     <div class="rounded-md col-span-3 py-20 px-5 bg-cover bg-no-repeat bg-center relative bg-[url('{{ .Params.image | relURL }}')]">
-      <div class="absolute inset-0 bg-primary opacity-10 rounded-md"></div>
+      <div class="absolute inset-0 bg-dark opacity-30 rounded-md"></div>
       <div class="relative flex flex-col justify-center items-start gap-10">
         <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-light uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          <span class="text-secondary">Live</span> 
-          Web Hacking
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-primary text-light uppercase relative">
+          <span class="absolute size-3 rounded bg-primary rotate-45 left-4 top-2"></span>
+          <span class="text-primary">Live</span> 
+          {{ .Params.categories }}
         </span>
-        <h3 class="text-light hero-heading">Breaking a real LFI into full remote code execution</h3>
+        <h3 class="text-light hero-heading uppercase">{{ .Title }}</h3>
         <div class="flex flex-wrap gap-5 items-center uppercase">
           <span class="text-light">HackITA TV</span>
-          <span class="text-light/80">OSCP / Web Hacking</span>
-          <span class="text-light/80">24 min watch</span>
+          <span class="text-light/80">{{ .Params.tags }} / {{ .Params.categories }}</span>
+          <span class="text-light/80">{{ $readingTime }} min watch</span>
         </div>
       </div>
     </div>
-
     <div class="flex flex-col gap-5 justify-between items-start col-span-2">
       <span class="text-primary"># Featured session</span>
-      <h3 class="text-light hero-heading">From basic bug to full compromise: real-world exploitation path.</h3>
-      <p class="text-light">Watch a full breakdown of a vulnerable web application, from discovery of a simple Local File Inclusion bug to log poisoning and remote code execution. Ideal to train your OSCP mindset with a realistic target.</p>
+      <h3 class="text-light hero-heading uppercase">{{ .Title }}</h3>
+      <p class="text-light">{{ .Description }}</p>
       <div class="flex items-stretch gap-5">
-        {{ partial "components/button.html" (dict "secondary" "true" "label" "Watch Now") }}
-        {{ partial "components/button.html" (dict "secondary" "true" "label" "Articles") }}
+        {{ partial "components/button.html" (dict "primary" "true" "link" "true" "label" "Read More" "url" .RelPermalink) }}
+        {{ partial "components/button.html" (dict "primary" "true" "link" "true" "label" "All Articles" "url" (printf "/categories/%s" .Params.categories)) }}
       </div>
     </div>
   </div>
+  {{ end }}
 </section>
 {{/* /hero */}}
 
 {{/* cards */}}
 <section class="max-w-7xl mx-auto py-10 px-5">
-
+  {{ range .Site.Taxonomies.categories }}
   <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent"></div>
     <div class="py-10">
       <div class="mb-5 flex gap-5 items-center justify-start">
         <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          Web Hacking
+          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-primary text-primary uppercase relative">
+          <span class="absolute size-3 rounded bg-primary rotate-45 left-4 top-2"></span>
+          {{ .Page.Title }}
         </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Latest</span> Exploits</p>
+        <p class="heading-sm text-light"><span class="text-primary">Latest</span> Exploits</p>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
+        {{ range .Pages }}
+        {{ $readingTime := div (float .WordCount) 170 }}
+        {{ $readingTime = math.Ceil $readingTime }}
+        <div class="rounded-md flex flex-col border border-primary hover:scale-125 transition-transform relative hover:z-10">
+          <div class="h-30"><img src='{{ .Params.image | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
+          <div class="bg-glass flex-1 p-3 flex flex-col gap-5 justify-between items-start">
             <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
+              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">{{ .Params.tags }}</span>
+              <span class="text-light text-sm">{{ $readingTime }} Min read</span>
             </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
+            <a href="{{ .RelPermalink }}" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:to-primary">
+              {{ .Title }}
+            </a>
+            <p class="text-light text-sm">{{ .Description }}</p>
           </div>
         </div>
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
+        {{ end }}
       </div>
     </div>
   </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          LINUXPRIVESC
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Privilege</span> Escalation</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          WINDOWSATTACKS
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Host</span> Attacks</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          TOOLS & AUTOMATION
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Automation</span> & Scripts</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          NETWORKING & PORTS
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Ports</span> & Services</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          CVEDEEP DIVES
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Vuln</span> Research</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          WALKTHROUGHS & LABS
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Lab</span> Sessions</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-secondary to-transparent"></div>
-    <div class="py-10">
-      <div class="mb-5 flex gap-5 items-center justify-start">
-        <span 
-          class="py-1 pl-9 pr-5 rounded-full text-center text-sm border border-secondary text-primary uppercase relative">
-          <span class="absolute size-3 rounded bg-secondary rotate-45 left-4 top-2"></span>
-          GUIDES & RESOURCES
-        </span>
-        <p class="heading-sm text-light"><span class="text-secondary">Study</span> & Resources</p>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-5">
-
-        <div class="rounded-md border border-secondary hover:scale-125 transition-transform relative hover:z-10">
-          <div class="h-30"><img src='{{ "images/web-hacking.webp" | relURL }}' alt="" class="size-full rounded-t-md object-cover"></div>
-          <div class="bg-glass p-3 flex flex-col gap-5 justify-between items-start">
-            <div class="w-full flex justify-between items-center uppercase">
-              <span class="rounded-full border border-light px-3 py-1 text-light text-xs">LFI / RFI</span>
-              <span class="text-light text-sm">10 min read</span>
-            </div>
-            <a href="" class="heading-sm bg-linear-to-b from-primary to-secondary from-50% bg-clip-text text-transparent hover:from-secondary">Local File Inclusion from zero to shell</a>
-            <p class="text-light text-sm">Learn the exact steps to turn a boring file read into full RCE using logs and filters.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
+  {{ end }}
 </section>
 {{/* /cards */}}
 

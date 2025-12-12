@@ -19,7 +19,7 @@ menus:
       pageRef: "/blog/"
       weight: 40
     - name: "Category"
-      pageRef: "/category/"
+      pageRef: "/categories/"
       weight: 50
 
 

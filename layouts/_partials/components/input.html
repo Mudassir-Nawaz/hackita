@@ -1,30 +1,20 @@
-<div class="flex flex-col">
-    <label class="text-light text-lg font-semibold ml-3" for="{{ .for }}">{{ upper .for }}</label>
-    <div class="custom-input mt-2">
-        <div class="custom-input-wrapper">
-        {{ if eq .textarea "true" }}
-        <textarea
-            name="{{ .for }}"
-            id="{{ .for }}"
-            class="custom-input"
-            placeholder="{{ .placeholder }}"
-            {{ if eq .required "true" }}
-            required
-            {{ end }}
-            rows="1"
-        ></textarea>
-        {{ else }}
-        <input
-            type="{{ .type }}"
-            name="{{ .for }}"
-            id="{{ .for }}"
-            class="custom-input"
-            placeholder="{{ .placeholder }}"
-            {{ if eq .required "true" }}
-            required
-            {{ end }}
-        />
-        {{ end }}
-        </div>
-    </div>
+<div class="relative">
+    {{ if eq .type "textarea" }}
+    <textarea 
+        name="{{ .for }}"
+        placeholder=" "
+        rows="1"
+        class="input-field w-full px-4 py-3 text-light text-sm tracking-wider rounded-md"    
+    ></textarea>
+    {{ else }}
+    <input 
+        type="{{ .type }}" 
+        name="{{ .for }}"
+        placeholder=" "
+        class="input-field w-full px-4 py-3 text-light text-sm tracking-wider rounded-md"
+    />
+    {{ end }}
+    <label class="label text-light text-sm uppercase">
+        <span class="inline-block">&#9656;</span> {{ .for }}
+    </label>
 </div>
